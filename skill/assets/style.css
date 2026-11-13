@@ -1,0 +1,145 @@
+/* 课程共享样式 — 所有 lesson 与 reference 统一引用 */
+:root {
+  --ink: #1a1a1a;
+  --paper: #fffff8;
+  --accent: #a0451b;      /* 赭红，标题/强调 */
+  --muted: #6b6b6b;
+  --code-bg: #f4f2ec;
+  --line: #e3ded2;
+  --ok: #2e7d32;
+  --bad: #c62828;
+}
+* { box-sizing: border-box; }
+html { font-size: 17px; }
+body {
+  margin: 0;
+  padding: 3rem 1.5rem 6rem;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Noto Serif SC", "Source Han Serif SC", "Songti SC", SimSun, serif;
+  line-height: 1.85;
+}
+main { max-width: 46rem; margin: 0 auto; }
+
+.kicker {
+  font-family: "Segoe UI", "Noto Sans SC", sans-serif;
+  font-size: .78rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: .4rem;
+}
+h1 {
+  font-family: "Segoe UI", "Noto Sans SC", sans-serif;
+  font-size: 1.9rem;
+  line-height: 1.3;
+  margin: 0 0 .3rem;
+  color: var(--ink);
+}
+.subtitle { color: var(--muted); margin: 0 0 2.2rem; font-style: italic; }
+h2 {
+  font-family: "Segoe UI", "Noto Sans SC", sans-serif;
+  font-size: 1.22rem;
+  margin: 2.6rem 0 .7rem;
+  padding-bottom: .25rem;
+  border-bottom: 1px solid var(--line);
+}
+h3 { font-family: "Segoe UI", "Noto Sans SC", sans-serif; font-size: 1.02rem; margin: 1.6rem 0 .4rem; }
+p { margin: .7rem 0; }
+a { color: var(--accent); text-decoration: none; border-bottom: 1px solid #d8b29a; }
+a:hover { border-bottom-color: var(--accent); }
+
+code, pre {
+  font-family: Consolas, "Cascadia Mono", Menlo, monospace;
+  font-size: .86em;
+}
+code { background: var(--code-bg); padding: .1em .35em; border-radius: 3px; }
+pre {
+  background: var(--code-bg);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: .9rem 1.1rem;
+  overflow-x: auto;
+  line-height: 1.6;
+}
+pre code { background: none; padding: 0; }
+
+table { border-collapse: collapse; width: 100%; margin: 1rem 0; font-size: .92rem; }
+th, td { border: 1px solid var(--line); padding: .45rem .7rem; text-align: left; vertical-align: top; }
+th { background: #f0ece0; font-family: "Segoe UI", "Noto Sans SC", sans-serif; font-weight: 600; }
+tr:nth-child(even) td { background: #fbfaf5; }
+
+blockquote {
+  margin: 1.2rem 0;
+  padding: .2rem 1.1rem;
+  border-left: 3px solid var(--accent);
+  color: #4a4a4a;
+  background: #fbf7f2;
+}
+.keypoint {
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--accent);
+  border-radius: 6px;
+  background: #fdfaf4;
+  padding: .8rem 1.1rem;
+  margin: 1.3rem 0;
+}
+.keypoint .tag {
+  font-family: "Segoe UI", "Noto Sans SC", sans-serif;
+  font-size: .75rem; letter-spacing: .12em;
+  color: var(--accent); font-weight: 700;
+}
+figure { margin: 1.6rem 0; text-align: center; }
+figure svg { max-width: 100%; height: auto; }
+figcaption { font-size: .85rem; color: var(--muted); margin-top: .5rem; }
+
+/* 测验 */
+.quiz { margin-top: 1rem; }
+.q-card {
+  border: 1px solid var(--line); border-radius: 8px;
+  padding: 1rem 1.2rem; margin: 1rem 0; background: #fffefa;
+}
+.q-text { font-weight: 600; margin-bottom: .6rem; }
+.q-opts { display: flex; flex-direction: column; gap: .45rem; }
+.q-opt {
+  text-align: left; cursor: pointer;
+  border: 1px solid var(--line); border-radius: 6px;
+  background: #fff; padding: .5rem .9rem;
+  font: inherit; font-size: .95rem;
+  transition: background .15s, border-color .15s;
+}
+.q-opt:hover { border-color: var(--accent); }
+.q-opt.correct { border-color: var(--ok); background: #eef7ee; }
+.q-opt.wrong   { border-color: var(--bad); background: #fdeeee; }
+.q-opt:disabled { cursor: default; opacity: .92; }
+.q-explain { font-size: .9rem; color: #4a4a4a; margin: .6rem 0 0; display: none; }
+.q-score {
+  font-family: "Segoe UI", "Noto Sans SC", sans-serif;
+  font-weight: 700; margin-top: 1rem; display: none;
+}
+.q-guess { display: none; margin-top: .5rem; font-size: .88rem; color: var(--muted); }
+.q-guess input { margin-right: .3rem; vertical-align: middle; }
+.q-retry, .q-copy {
+  margin-top: .6rem; cursor: pointer;
+  border: 1px solid var(--line); border-radius: 6px;
+  background: #fff; padding: .35rem .8rem;
+  font: inherit; font-size: .88rem;
+}
+.q-retry:hover, .q-copy:hover { border-color: var(--accent); }
+.q-copy { display: block; margin-top: 1rem; }
+
+.lesson-nav {
+  margin-top: 3.5rem; padding-top: 1rem;
+  border-top: 2px solid var(--line);
+  font-family: "Segoe UI", "Noto Sans SC", sans-serif;
+  font-size: .92rem;
+  display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+}
+.teacher-note {
+  margin-top: 2.5rem; font-size: .9rem; color: var(--muted);
+  border-top: 1px dashed var(--line); padding-top: .8rem;
+}
+@media print {
+  body { padding: 0; background: #fff; }
+  .q-opt { border: 1px solid #999; }
+}
