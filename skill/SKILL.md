@@ -56,10 +56,11 @@ Follow `LESSON-FORMAT.md` exactly. 8 blocks, ≤2 new concepts, 画面先行 5 �
 
 ## Practice line
 
-Follow `DRILL-FORMAT.md`.
+Follow `DRILL-FORMAT.md`（专题）与 `EXAM-FORMAT.md`（整卷模拟）。
 - 专题按考点组织，不按课次；课没上完也能刷已教考点。
-- 套卷按 `EXAM-BLUEPRINT.md` 里**每套卷自己的结构**组卷，不写死配比。
+- 套卷按 `EXAM-BLUEPRINT.md` 里**每套卷自己的结构**组卷，不写死配比；范围只覆盖已教考点。
 - 答案必须标来源：`标准答案` / `考生作答` / `AI 推导`。
+- **出题后自校一轮**：对自测题独立重算一遍答案再交付——闸门只查结构，查不出答案错误。
 
 ## Review loop
 
@@ -121,6 +122,7 @@ python ~/.claude/skills/teach-exam/scripts/check_workspace.py .
 | "课件没讲，但考试可能考" | 没有出处就不是考点；进加餐，不计分。 |
 | "一天能学完一章" | 36 节课曾在 2 天内完成，结果是没有间隔复习。按 CONFIG 的节奏走。 |
 | "我检查过了" | 贴输出。没有输出就是没检查。 |
+| "闸门 9/9，答案肯定没问题" | 闸门只查结构。实测被翻转的错误答案照样 9/9。出题后独立重算一轮。 |
 
 ## Common mistakes
 
@@ -132,7 +134,7 @@ python ~/.claude/skills/teach-exam/scripts/check_workspace.py .
 
 ## Files
 
-- `LESSON-FORMAT.md` `DRILL-FORMAT.md`
+- `LESSON-FORMAT.md` `DRILL-FORMAT.md` `EXAM-FORMAT.md`
 - `EXAM-BLUEPRINT-FORMAT.md` `COVERAGE-FORMAT.md` `CONFIG-FORMAT.md`
 - `MISSION-FORMAT.md` `LEARNING-RECORD-FORMAT.md` `RESOURCES-FORMAT.md` `GLOSSARY-FORMAT.md`
 - `assets/quiz.js` `assets/style.css`

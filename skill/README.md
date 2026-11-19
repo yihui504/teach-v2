@@ -14,7 +14,7 @@
 
 - `EXAM-BLUEPRINT.md`：考点 × PPT 页 × 教材章节 × 题型 × 分值 × 掌握状态
 - `drills/`：按考点刷题，独立于课程进度
-- `exams/`：按真题卷面结构组卷
+- `exams/`：按真题卷面结构组卷，带逐项评分点与模拟考记录
 - `REVIEW-QUEUE.md` + `MISTAKES.md`：错题、蒙对、到期复习
 - `scripts/check_lesson.py`：交付前机械闸门
 - `scripts/extract_*.py` + `ocr_pages.py`：PPT / PDF / 扫描件分层抽取
@@ -85,7 +85,10 @@ python scripts/ocr_pages.py sources/pages -o sources/xxx.md
 
 ## 已知限制
 
-- `check_lesson.py` 只检查机械项；超纲、讲得透不透仍是人工判断。
+- `check_lesson.py` 只检查**结构**（选项卫生、块完整、链接），**查不出答案内容错误**——实测被翻转的错误答案照样 9/9。对策：出题后强制一轮独立重算抽查（T1 边界测试证实有效）。
+- `check_workspace.py` 只比对考点 ID 集合，不比对蓝图↔覆盖账本的状态列。
 - OCR 对扫描件有错字，关键页必须视觉复核。
 - `考生作答`（卷面手写）不是标准答案，不能直接进题库。
 - skill 是 user-invoked（`disable-model-invocation: true`），不会被模型自动触发。
+
+边界测试证据：`docs/` 与仓库外 `_tests/BOUNDARY-results.md`（T1 答案核查 / T2 复习小结 / T3 跨会话恢复 / T5 复合压力，四项全过）。
